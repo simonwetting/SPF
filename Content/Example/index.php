@@ -6,5 +6,6 @@
 </head>
 
 <body>
+	<h1>Page Loaded!</h1>
 </body>
 </html>
