@@ -1,3 +1,1 @@
-<?php
-//echo "UniGUI Loaded!";
-?>
+<script>alert("UniGUI Loaded!")</script>
