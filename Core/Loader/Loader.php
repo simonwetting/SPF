@@ -1,5 +1,5 @@
 <?php
-chdir("/var/www/SPF/Core/Loader/");
+chdir("C:\xampp\htdocs\SPF\Core\Loader\");
 //Load configuration file
 include_once "../Conf.php";
 //Add libraries
