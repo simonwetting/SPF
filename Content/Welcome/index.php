@@ -2,9 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
+<title>SPF - Welcome page</title>
 </head>
 
 <body>
+<?php
+UniGUI_Insert("Header");
+UniGUI_Insert("Navbar");
+UniGUI_Insert("Page_Content", "Path=Content/Welcome/SPF_Info.php");
+UniGUI_Insert("Footer");
+?>
 </body>
 </html>

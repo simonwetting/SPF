@@ -1,1 +1,0 @@
-<script>alert("G-CMS Loaded!")</script>

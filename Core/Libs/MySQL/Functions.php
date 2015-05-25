@@ -21,4 +21,5 @@ function MySQL_get_array($Table, $Collumn, $Condition){
 function mySQL_tools_execute($Query){
 	mysql_Query($Query) or die(mysql_error());
 }
+PFN(__FILE__);
 ?>

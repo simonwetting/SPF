@@ -1,16 +1,23 @@
 <?php
-chdir("C:\xampp\htdocs\SPF\Core\Loader\");
-//Load configuration file
-include_once "../Conf.php";
-//Add libraries
-include_once $Dir."Core/Libraries/MySQL/Functions.php";
-include_once $Dir."Core/Libraries/Debug.php";
+//Change working directory for SPF
+//chdir($Directory);
+
+//Set debugger on/off
+$Debug=0;
+
+//Include Core Files
+include_once "Core/Libs/Debug.php";
+include_once "Core/Conf/MySQL.php";
+include_once "Core/Libs/MySQL/Functions.php";
+include_once "Core/Libs/Var/Locations.php";
 
 //Get PageName
 if(!isset($_GET['p'])){echo "No page chosen";}
 $PageName = $_GET['p'];
 
+//Connect to DB
 $Link = MySQL_open_connection($User, $Pass, $DB);
+
 //Check if page exists
 $Temp = MySQL_get_array("Pages", "Name", "Name='".$PageName."'");
 if($Temp[0]!=$PageName){echo "Page does not exist!";}
@@ -20,6 +27,7 @@ unset($Temp);
 $Page_info = MySQL_get_array("Pages", "*", "Name='".$PageName."'");
 mysql_close($Link);
 
+DB_MSG("Loading Settings...");
 //Create associative array for settings
 $Temp = explode(";", $Page_info['Settings']);
 $Settings = array();
@@ -31,6 +39,7 @@ foreach($Temp as $Value){
 }
 unset($Temp);
 
+DB_MSG("Loading Modules...");
 //Create array for modules
 $Modules = explode(";", $Page_info['Modules']);
 
@@ -43,17 +52,20 @@ foreach($Modules as $Module){
 	//Assign modulename to it's own variable
 	$Module = $Module[0];
 	//Load module
-	$Path = "../../Modules/".$Module."/Load.php";
+	$Path = getcwd()."/Modules/".$Module."/Load.php";
 	if(file_exists($Path)){
-		include $Path;
 		foreach($Module_Settings as $Temp){
 			$Variable = explode("=", $Temp);
 			$GLOBALS[$Module][$Variable[0]] = $Variable[1];
 		}
+		include $Path;
 	}
 	else{echo '<script>alert("Module \"'.$Module.'\" doesn\'t exist")</script>';}
 }
 
 //Include main file
-include "../../".$Page_info['Path'];
+DB_MSG("Loading Page...");
+include getcwd()."/Content/".$Page_info['Path'];
+
+DB_MSG("<b>Finished executing without crashing</b>");
 ?>

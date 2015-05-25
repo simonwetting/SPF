@@ -1,0 +1,84 @@
+/* CSS Document */
+html, body{
+	background-color: #3CF; font-family: Verdana, Geneva, sans-serif;
+	margin: 0 0 0 0; overflow: hidden; height: 100%; width: 100%; height: 100%; width: 100%;
+}
+
+/*Coloros to be used
+background-color: #3*F
+*/
+
+
+/*
+----------------------------------------------------------------------------
+								Header
+----------------------------------------------------------------------------
+*/
+#Header{
+	width: 100%; height: 5%; background-color: #39F; font-size: 18px;
+}
+#Header_Title_Container, #Header_Account{
+	float: left; height: 100%; width: 50%; padding-top: 10px;
+}
+#Header_Title, #Header_Account_Name, #Header_Account_Button{
+	margin: 0px;
+}
+#Header_Account_Name, #Header_Account_Button{
+	float: left; display:block;
+}
+#Header_Account_Name{width:75%;}
+#Header_Account_Button{width:25%;}
+/*
+----------------------------------------------------------------------------
+								Navbar
+----------------------------------------------------------------------------
+*/
+#Navbar{width: 100%; height: 5%;}
+#Navbar_Background{width: 100%; height: 100%;}
+#Navbar_Background_One, #Navbar_Background_Two{height: 50%; width: inherit;}
+#Navbar_Background_One{background-color: #35F;}
+#Navbar_Background_Two{background-color: #36F;}
+#Navbar_Menu{height: 5%; width: inherit; position: absolute; top: 6%; margin: 0;}
+.Navbar_Menu_Item{float: left; margin-left: 5%;}
+.Navbar_Menu_Item:hover, .Header_Menu_Item:active{
+	background-color: #3AF; border-style: inset; border-color: #3AF;
+}
+.Navbar_Menu_Item:active{
+	border-width: 6px;
+}
+/*
+----------------------------------------------------------------------------
+								Page_Content
+----------------------------------------------------------------------------
+*/
+#Page_Content{
+	width: 60%; height: 85%; background-color: #3AF; overflow: auto; margin-left: auto; margin-right: auto; border: #39F inset 10px;
+}
+/*
+/*
+----------------------------------------------------------------------------
+								Page_ContentM
+----------------------------------------------------------------------------
+*/
+#Page_ContentM_Wrapper{
+	width: 80%; height: 85%; background-color: #3AF; margin-left: 0; margin-right: auto;
+}
+#Page_ContentM_Menu_Wrapper, #Page_ContentM_Content{
+	border: #39F inset 10px; float: left;
+}
+#Page_ContentM_Menu_Wrapper{
+	height: 100%; width: 30%;
+	background-color: #36F;
+}
+#Page_ContentM_Content{
+	height: 100%; width: 60%;
+	overflow: auto;
+}
+/*
+----------------------------------------------------------------------------
+								Footer
+----------------------------------------------------------------------------
+*/
+#Footer{
+	width: 100%; height: 5%; background-color: #39F; margin-top: -1.2%;	
+}
