@@ -1,6 +1,6 @@
 <?php
 //Load configuration file
-include_once "../../Conf.php";
+include_once $GLOBALS['$SPFDir']."/Core/Conf/MySQL.php";
 
 //Connect to Database
 function MySQL_open_connection($User, $Pass, $DB){
@@ -18,8 +18,10 @@ function MySQL_get_array($Table, $Collumn, $Condition){
 }
 
 //Executes MySQL Query
-function mySQL_tools_execute($Query){
+function MySQL_tools_execute($Query){
 	mysql_Query($Query) or die(mysql_error());
 }
+//sp(MySQL_get_array("test", "Value", "ID='1'"));
+//@mysql_select_db($DB) or die( "Unable to select Database");
 PFN(__FILE__);
 ?>

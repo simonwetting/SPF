@@ -1,6 +1,6 @@
 <div id="Info">
 <h2>
-Welcome to the alpha version of SPF!
+Welcome to the (not even) Dev version of SPF!
 </h2>
 <h3>
 Contents:

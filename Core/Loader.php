@@ -1,26 +1,29 @@
 <?php
-//Change working directory for SPF
-//chdir($Directory);
-
+$GLOBALS['$SPFDir'] = getcwd();
 //Set debugger on/off
-$Debug=0;
+if(!isset($_GET['Debug'])){$Debug=0;}
+else{$Debug=$_GET['Debug'];}
 
 //Include Core Files
 include_once "Core/Libs/Debug.php";
 include_once "Core/Conf/MySQL.php";
 include_once "Core/Libs/MySQL/Functions.php";
-include_once "Core/Libs/Var/Locations.php";
 
 //Get PageName
-if(!isset($_GET['p'])){echo "No page chosen";}
-$PageName = $_GET['p'];
+
+//if page isn't chosen prompt "no page chosen"
+//if(!isset($_GET['p'])){echo "No page chosen"; exit;}
+
+//if no page is chosen go $PageName=xxx
+if(!isset($_GET['p'])){$PageName = "Welcome";}
+else $PageName = $_GET['p'];
 
 //Connect to DB
 $Link = MySQL_open_connection($User, $Pass, $DB);
 
 //Check if page exists
 $Temp = MySQL_get_array("Pages", "Name", "Name='".$PageName."'");
-if($Temp[0]!=$PageName){echo "Page does not exist!";}
+if(strcasecmp($Temp[0], $PageName)!==0){echo "Page does not exist!"; exit;}
 unset($Temp);
 
 //Get info for page
